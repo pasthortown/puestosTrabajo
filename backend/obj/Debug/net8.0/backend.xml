@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>backend</name>
+    </assembly>
+    <members>
+        <member name="T:Backend.Application.Controllers.ScheduleController">
+            <summary>
+            Controlador para gestionar agendas.
+            </summary>
+        </member>
+        <member name="M:Backend.Application.Controllers.ScheduleController.#ctor(Backend.Application.Services.ScheduleService)">
+            <summary>
+            Constructor del controlador de agendas.
+            </summary>
+            <param name="scheduleService">Servicio de agendas.</param>
+        </member>
+        <member name="M:Backend.Application.Controllers.ScheduleController.CrearAgenda(Backend.Domain.Entities.Schedule)">
+            <summary>
+            Crea una agenda nueva.
+            </summary>
+            <param name="schedule">Datos de la agenda a crear.</param>
+            <returns>Resultado de la operación.</returns>
+        </member>
+        <member name="M:Backend.Application.Controllers.ScheduleController.ObtenerAgendasPorFecha(System.String)">
+            <summary>
+            Obtiene las agendas de una fecha específica.
+            </summary>
+            <param name="fecha">Fecha para obtener las agendas.</param>
+            <returns>Devuelve las agendas de esa fecha.</returns>
+        </member>
+        <member name="M:Backend.Application.Controllers.ScheduleController.ObtenerAgendas">
+            <summary>
+            Obtiene todas las agendas.
+            </summary>
+            <returns>Lista de agendas.</returns>
+        </member>
+        <member name="M:Backend.Application.Controllers.ScheduleController.ObtenerAgendaPorId(System.String)">
+            <summary>
+            Obtiene una agenda por su ID.
+            </summary>
+            <param name="id">ID de la agenda.</param>
+            <returns>Devuelve la agenda correspondiente al ID proporcionado.</returns>
+        </member>
+        <member name="M:Backend.Application.Controllers.ScheduleController.ObtenerAgendasPorEmail(System.String)">
+            <summary>
+            Obtiene las agendas asociadas a un correo electrónico.
+            </summary>
+            <param name="email">Correo electrónico para buscar las agendas.</param>
+            <returns>Devuelve las agendas asociadas al correo electrónico proporcionado.</returns>
+        </member>
+        <member name="M:Backend.Application.Controllers.ScheduleController.EliminarAgenda(System.String)">
+            <summary>
+            Borra una agenda a partir de su ID.
+            </summary>
+            <param name="id">ID de la agenda a borrar.</param>
+            <returns>Resultado de la operación.</returns>
+        </member>
+        <member name="M:Backend.Application.Controllers.ScheduleController.ActualizarAgenda(System.String,Backend.Domain.Entities.Schedule)">
+            <summary>
+            Actualiza una agenda a partir de su ID.
+            </summary>
+            <param name="id">ID de la agenda a actualizar.</param>
+            <param name="updatedSchedule">Datos actualizados de la agenda.</param>
+            <returns>Resultado de la operación.</returns>
+        </member>
+    </members>
+</doc>

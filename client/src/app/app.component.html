@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row mt-2">
+    <div class="col-12" style="text-align: right;">
+      <div class="btn-group" role="group">
+        <span *ngIf="username !==''" class="username">Hola, {{username}}&nbsp;</span>
+        <button *ngIf="username ===''" (click)="login()" type="button" class="btn btn-outline-primary">
+          <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
+        </button>
+        <button *ngIf="username !==''" type="button" class="btn btn-outline-success">
+          <i class="fas fa-chair"></i> Escoger Puestos
+        </button>
+        <button *ngIf="username !==''" type="button" class="btn btn-outline-danger">
+          <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-3 mt-3">
+    <h2 class="col-12 text-center">
+      Estaciones de Trabajo - Equipo CX
+    </h2>
+  </div>
+</div>
+<div class="container">
+  <div *ngFor="let area_trabajo of areas_trabajo" class="row mb-5" style="border-left-style: solid; border-left-color: blue; border-left-width: 5px;">
+    <div *ngFor="let grupo of area_trabajo; let i = index" class="row mb-2">
+      <div *ngFor="let mesa of grupo" class="col-2"
+           [style.background-image]="i % 2 === 0 ? 'url(\'assets/normal_u.png\')' : 'url(\'assets/normal_d.png\')'"
+           style="background-size: 100% 100%; background-position: center; height: 100px; text-align: center; line-height: 100px;">
+        {{mesa.puesto}} - {{mesa.asignado}}
+      </div>
+    </div>
+  </div>
+</div>
