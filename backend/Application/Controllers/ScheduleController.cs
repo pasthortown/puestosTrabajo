@@ -35,7 +35,8 @@ namespace Backend.Application.Controllers
             try
             {
                 _scheduleAppService.GuardarAgenda(schedule);
-                return Ok("Agenda guardada correctamente.");
+                var respuesta = new { Mensaje = "Agenda guardada correctamente" };
+                return Ok(new { respuesta });
             }
             catch (Exception ex)
             {
@@ -104,29 +105,6 @@ namespace Backend.Application.Controllers
         }
 
         /// <summary>
-        /// Obtiene las agendas asociadas a un correo electrónico.
-        /// </summary>
-        /// <param name="email">Correo electrónico para buscar las agendas.</param>
-        /// <returns>Devuelve las agendas asociadas al correo electrónico proporcionado.</returns>
-        [HttpGet("email/{email}")]
-        public IActionResult ObtenerAgendasPorEmail(string email)
-        {
-            try
-            {
-                var agendas = _scheduleAppService.ObtenerAgendasPorEmail(email);
-                if (agendas.Count == 0)
-                {
-                    return NotFound("No se encontraron agendas para este correo electrónico");
-                }
-                return Ok(agendas);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest($"Error al obtener las agendas por correo electrónico: {ex.Message}");
-            }
-        }
-
-        /// <summary>
         /// Borra una agenda a partir de su ID.
         /// </summary>
         /// <param name="id">ID de la agenda a borrar.</param>
@@ -137,7 +115,8 @@ namespace Backend.Application.Controllers
             try
             {
                 _scheduleAppService.EliminarAgenda(id);
-                return Ok($"Agenda con ID {id} eliminada correctamente.");
+                var respuesta = new { Mensaje = $"Agenda con ID {id} eliminada correctamente" };
+                return Ok(new { respuesta });
             }
             catch (Exception ex)
             {

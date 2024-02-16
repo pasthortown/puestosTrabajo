@@ -51,3 +51,4 @@ D:\Proyectos\PuestosSoporteConfiguracion\backend\bin\Debug\net8.0\ZstdSharp.dll
 D:\Proyectos\PuestosSoporteConfiguracion\backend\bin\Debug\net8.0\runtimes\linux\native\libmongocrypt.so
 D:\Proyectos\PuestosSoporteConfiguracion\backend\bin\Debug\net8.0\runtimes\osx\native\libmongocrypt.dylib
 D:\Proyectos\PuestosSoporteConfiguracion\backend\bin\Debug\net8.0\runtimes\win\native\mongocrypt.dll
+D:\Proyectos\PuestosSoporteConfiguracion\backend\obj\Debug\net8.0\backend.sourcelink.json

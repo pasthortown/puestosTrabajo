@@ -31,8 +31,8 @@ namespace Backend.Application.Services
             DateTime fechaConsulta = DateTime.Parse(fecha).Date;
             DateTime fechaSiguiente = fechaConsulta.AddDays(1); // Para incluir hasta el final del día.
 
-            var filter = Builders<Schedule>.Filter.Gte("date", fechaConsulta) &
-                        Builders<Schedule>.Filter.Lt("date", fechaSiguiente);
+            var filter = Builders<Schedule>.Filter.Gte("start_date", fechaConsulta) &
+                        Builders<Schedule>.Filter.Lt("start_date", fechaSiguiente);
             
             return _schedules.Find(filter).ToList();
         }
@@ -59,8 +59,9 @@ namespace Backend.Application.Services
             }
 
             agendaExistente.workspace = updatedSchedule.workspace;
-            agendaExistente.date = updatedSchedule.date;
-            agendaExistente.email = updatedSchedule.email;
+            agendaExistente.start_date = updatedSchedule.start_date;
+            agendaExistente.end_date = updatedSchedule.end_date;
+            agendaExistente.person_id = updatedSchedule.person_id;
 
             _schedules.ReplaceOne(filter, agendaExistente);
         }
@@ -69,12 +70,6 @@ namespace Backend.Application.Services
         {
             var filter = Builders<Schedule>.Filter.Eq("id", agendaId);
             return _schedules.Find(filter).FirstOrDefault();
-        }
-
-        public List<Schedule> ObtenerAgendasPorEmail(string email)
-        {
-            var filter = Builders<Schedule>.Filter.Eq("email", email);
-            return _schedules.Find(filter).ToList();
         }
 
         private void ValidarAgenda(Schedule agenda)
@@ -87,11 +82,6 @@ namespace Backend.Application.Services
             if (string.IsNullOrWhiteSpace(agenda.workspace))
             {
                 throw new ArgumentException("El campo workspace de la agenda es obligatorio.", nameof(agenda.workspace));
-            }
-
-            if (string.IsNullOrWhiteSpace(agenda.email))
-            {
-                throw new ArgumentException("El campo email de la agenda es obligatorio.", nameof(agenda.email));
             }
         }
     }

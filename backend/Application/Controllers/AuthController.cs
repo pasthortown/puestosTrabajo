@@ -17,6 +17,12 @@ namespace Backend.Application.Controllers
             _configuration = configuration;
         }
 
+        /// <summary>
+        /// Realiza la autenticación por LDAP.
+        /// </summary>
+        /// <param name="loginRequest">Credenciales de Autenticación.</param>
+        /// <returns>Realiza la autenticación por LDAP.</returns>
+        /// 
         [HttpPost("login")]
         public IActionResult Login([FromBody] LoginRequest loginRequest)
         {
@@ -30,11 +36,13 @@ namespace Backend.Application.Controllers
                     try
                     {
                         ldapConnection.Bind(new System.Net.NetworkCredential(loginRequest.Username, loginRequest.Password));
-                        return Ok("Autenticación exitosa");
+                        var respuesta = new { Mensaje = "Autenticación exitosa" };
+                        return Ok(new { respuesta });
                     }
                     catch (LdapException ldapEx)
                     {
-                        return StatusCode(401, ldapEx.Message);
+                        var respuesta = new { Mensaje = ldapEx.Message };
+                        return StatusCode(401, respuesta);
                     }
                 }
             }

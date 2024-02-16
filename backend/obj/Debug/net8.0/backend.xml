@@ -4,6 +4,60 @@
         <name>backend</name>
     </assembly>
     <members>
+        <member name="M:Backend.Application.Controllers.AuthController.Login(LoginRequest)">
+            <summary>
+            Realiza la autenticación por LDAP.
+            </summary>
+            <param name="loginRequest">Credenciales de Autenticación.</param>
+            <returns>Realiza la autenticación por LDAP.</returns>
+            
+        </member>
+        <member name="T:Backend.Application.Controllers.PersonController">
+            <summary>
+            Controlador para gestionar personas.
+            </summary>
+        </member>
+        <member name="M:Backend.Application.Controllers.PersonController.#ctor(Backend.Application.Services.PersonService)">
+            <summary>
+            Constructor del controlador de personas.
+            </summary>
+            <param name="personService">Servicio de personas.</param>
+        </member>
+        <member name="M:Backend.Application.Controllers.PersonController.CrearPersona(Backend.Domain.Entities.Person)">
+            <summary>
+            Crea una nueva persona.
+            </summary>
+            <param name="person">Datos de la persona a crear.</param>
+            <returns>Resultado de la operación.</returns>
+        </member>
+        <member name="M:Backend.Application.Controllers.PersonController.ObtenerPersonas">
+            <summary>
+            Obtiene todas las personas.
+            </summary>
+            <returns>Lista de personas.</returns>
+        </member>
+        <member name="M:Backend.Application.Controllers.PersonController.ObtenerPersonaPorId(System.String)">
+            <summary>
+            Obtiene una persona por su ID.
+            </summary>
+            <param name="id">ID de la persona.</param>
+            <returns>Devuelve la persona correspondiente al ID proporcionado.</returns>
+        </member>
+        <member name="M:Backend.Application.Controllers.PersonController.EliminarPersona(System.String)">
+            <summary>
+            Borra una persona a partir de su ID.
+            </summary>
+            <param name="id">ID de la persona a borrar.</param>
+            <returns>Resultado de la operación.</returns>
+        </member>
+        <member name="M:Backend.Application.Controllers.PersonController.ActualizarPersona(System.String,Backend.Domain.Entities.Person)">
+            <summary>
+            Actualiza una persona a partir de su ID.
+            </summary>
+            <param name="id">ID de la persona a actualizar.</param>
+            <param name="updatedPerson">Datos actualizados de la persona.</param>
+            <returns>Resultado de la operación.</returns>
+        </member>
         <member name="T:Backend.Application.Controllers.ScheduleController">
             <summary>
             Controlador para gestionar agendas.
@@ -41,13 +95,6 @@
             </summary>
             <param name="id">ID de la agenda.</param>
             <returns>Devuelve la agenda correspondiente al ID proporcionado.</returns>
-        </member>
-        <member name="M:Backend.Application.Controllers.ScheduleController.ObtenerAgendasPorEmail(System.String)">
-            <summary>
-            Obtiene las agendas asociadas a un correo electrónico.
-            </summary>
-            <param name="email">Correo electrónico para buscar las agendas.</param>
-            <returns>Devuelve las agendas asociadas al correo electrónico proporcionado.</returns>
         </member>
         <member name="M:Backend.Application.Controllers.ScheduleController.EliminarAgenda(System.String)">
             <summary>

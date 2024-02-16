@@ -17,6 +17,7 @@ namespace Backend.Infrastructure {
         }
 
         public IMongoCollection<Schedule> Schedules => _database.GetCollection<Schedule>("Schedules");
+        public IMongoCollection<Person> Persons => _database.GetCollection<Person>("Persons");
     }
 }
 

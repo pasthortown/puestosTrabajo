@@ -38,6 +38,7 @@ builder.Services.AddSwaggerGen(c => {
 });
 builder.Services.AddSingleton<MongoDBContext>();
 builder.Services.AddScoped<ScheduleService>();
+builder.Services.AddScoped<PersonService>();
 builder.Services.AddControllers();
 
 var app = builder.Build();
