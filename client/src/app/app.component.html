@@ -11,7 +11,7 @@
       <div *ngFor="let mesa of grupo" class="col-2"
            [style.background-image]="i % 2 === 0 ? 'url(\'assets/normal_u.png\')' : 'url(\'assets/normal_d.png\')'"
            style="background-size: 100% 100%; background-position: center; height: 100px; text-align: center; line-height: 100px;">
-        {{mesa.puesto}} - {{mesa.asignado}}
+        <b style="color:blue;">{{mesa.asignado}}</b>
       </div>
     </div>
   </div>
