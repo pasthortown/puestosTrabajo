@@ -1,0 +1,17 @@
+version: '3'
+
+networks:
+  dsi_puestos_trabajo_net:
+    ipam:
+      config:
+        - subnet: 192.168.99.0/24
+
+services:
+  backend:
+    image: puestos_trabajo:backend
+    restart: always
+    ports:
+    - 8686:5000
+    networks:
+      dsi_puestos_trabajo_net:
+        ipv4_address: 192.168.99.10

@@ -14,7 +14,7 @@ import { RouterOutlet } from '@angular/router';
 export class AppComponent implements OnInit{
   areas_trabajo: any[] = [];
   identificadores_area_trabajo: any[] = [];
-  url_backend: string = "http://localhost:5100/";
+  url_backend: string = "http://192.168.101.54:8686/";
   equipo_trabajo: any = [];
 
   constructor(private http: HttpClient) {
