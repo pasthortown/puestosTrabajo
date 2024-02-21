@@ -15,3 +15,12 @@ services:
     networks:
       dsi_puestos_trabajo_net:
         ipv4_address: 192.168.99.10
+  front:
+    image: httpd:latest
+    ports:
+      - "8687:80"
+    networks:
+      dsi_puestos_trabajo_net:
+        ipv4_address: 192.168.99.11
+    volumes:
+      - ./puestosTrabajo/client/dist/client/browser/:/usr/local/apache2/htdocs/
